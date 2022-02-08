@@ -8,7 +8,10 @@ import React, { useEffect, useState } from "react";
 import HomeIcon from '@mui/icons-material/Home';
 import AppsIcon from '@mui/icons-material/Apps';
 import MessageIcon from '@mui/icons-material/Message';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 import SearchBar from './SearchBar.js'
+
 
 const DashNavbar = () => {
 
@@ -38,12 +41,6 @@ const DashNavbar = () => {
         );
         setDarkTheme(initialColorValue === "dark");
     }, [])
-    // const [isHidden, setHidden] = useState(true)
-
-
-    // function showMenu(){
-    //     setHidden(!isHidden)
-    // }
 
     return (
         <nav className={` bg-white ${styles.dashNavContainer}`}>
@@ -133,9 +130,11 @@ const DashNavbar = () => {
                             </Link>
                             <div>
                                 <form>
-                                    <label className='switch'>
-                                        <input type="checkbox" checked={darkTheme} onChange={handleToggle} />
-                                        <span className='slider'></span>
+                                    <input type="checkbox" id='chk' className={`${styles.checkbox}`}  checked={darkTheme} onChange={handleToggle} />
+                                    <label className={`${styles.switch}`} for="chk">
+                                        <DarkModeIcon className={`${styles.darkMood}`}/> 
+                                        <LightModeIcon className={`${styles.lightMood}`}/>
+                                        <div className={`${styles.ball}`}></div>
                                     </label>
                                 </form>
                             </div>
